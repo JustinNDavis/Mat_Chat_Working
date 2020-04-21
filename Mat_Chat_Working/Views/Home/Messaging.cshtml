@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Messaging";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<link rel="stylesheet" href="css/style.css">
+<!--Message Example-->
+<html>
+<head>
+    <title>MatChat: Messaging</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>MatChat</header>
+        <p class="center">For grapplers, by grapplers</p>
+        <br />
+        <div class="messaging">
+            <img src="/w3images/bandmember.jpg" alt="Avatar">
+            <p>Message1</p>
+            <span class="time-right">11:00</span>
+        </div>
+
+        <div class="messaging darker">
+            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
+            <p>Message2</p>
+            <span class="time-left">11:01</span>
+        </div>
+
+        <div class="messaging">
+            <img src="/w3images/bandmember.jpg" alt="Avatar">
+            <p>Message3</p>
+            <span class="time-right">11:02</span>
+        </div>
+
+        <div class="messaging darker">
+            <img src="/w3images/avatar_g3.jpg" alt="Avatar" class="right">
+            <p>Message4</p>
+            <span class="time-left">11:05</span>
+        </div>
+        <br /><br />
+
+        <form action="/action_page.php">
+            <label for="message">Message: </label>
+            <input type="text" name="Message"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <br /><br />
+    </div>
+
+    <div class="sidenav">
+        <a href="profile.html">Profile</a>
+        <a href="data.html">Data</a>
+        <a href="students.html">Students</a>
+        <a href="messaging.html">Messaging</a>
+    </div>
+</body>
+
+
+</html>
+
