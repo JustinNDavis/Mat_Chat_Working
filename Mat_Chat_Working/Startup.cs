@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+
 namespace Mat_Chat_Working
 {
     public class Startup
@@ -23,6 +24,7 @@ namespace Mat_Chat_Working
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllersWithViews();
         }
 
@@ -45,7 +47,8 @@ namespace Mat_Chat_Working
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
+            //default entry point for app is index (look at action = index)
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

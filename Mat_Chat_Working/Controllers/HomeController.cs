@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mat_Chat_Working.Models;
+using System.Text.Encodings.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mat_Chat_Working.Controllers
 {
     public class HomeController : Controller
     {
+        MyDbContext context = new MyDbContext();
         private readonly ILogger<HomeController> _logger;
 
+        public string Welcome(string firstName, int numTimes = 1)
+        {
+            return HtmlEncoder.Default.Encode($"Hello {firstName}");
+        }
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -31,9 +34,11 @@ namespace Mat_Chat_Working.Controllers
         {
             return View();
         }
-        public IActionResult Profile()
+        //make student profile variable = whatever context.prof.... is returning
+        public IActionResult Profile(int id)
         {
-            return View();
+            var studentProfile = context.Profile.SingleOrDefaultAsync(x => x.StudentID == id);
+            return View(studentProfile);
         }
         public IActionResult Messaging()
         {
@@ -48,7 +53,6 @@ namespace Mat_Chat_Working.Controllers
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Mat_Chat_Working.Models.Profile
+@{
     ViewData["Title"] = "Profile";
 }
 
@@ -15,8 +16,8 @@
         <h1>Mat Chat</h1>
         <h4>For grapplers, by grapplers</h4>
         <br />
-        <h4>Update Profile</h4>
 
+        <h4>Update Profile</h4>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
